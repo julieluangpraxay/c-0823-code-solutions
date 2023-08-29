@@ -60,7 +60,7 @@ const orderHistory = [
       delivered: 'Jul 5, 2020',
       deliveryNote: null,
       productTitle: 'The Art of Sql',
-      seller: 'Faroult, Stephane',
+      seller: null,
       returnWindow: 'Return window closed on Aug 4, 2020',
       price: '$33.99',
     },
