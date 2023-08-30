@@ -79,7 +79,7 @@ function categorizeAcidity(pH) {
     return 'invalid pH level';
   }
 }
-console.log(categorizeAcidity(12));
+console.log('pH level is:', categorizeAcidity(12));
 
 function introduceWarnerBro(name) {
   switch (name) {
@@ -94,7 +94,7 @@ function introduceWarnerBro(name) {
   }
 }
 
-console.log(introduceWarnerBro('dot'));
+console.log('introduceWarnerBro:', introduceWarnerBro('dot'));
 
 function recommendMovie(genre) {
   switch (genre) {
@@ -113,4 +113,4 @@ function recommendMovie(genre) {
   }
 }
 
-console.log(recommendMovie('action'));
+console.log('recommendMovie:', recommendMovie('action'));
