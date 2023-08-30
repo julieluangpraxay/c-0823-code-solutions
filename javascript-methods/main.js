@@ -2,8 +2,8 @@ const num1 = 1;
 const num2 = 2;
 const num3 = 3;
 
-const maximumValue = num1 + num2 + num3;
-console.log('Maximum Value:', Math.max(maximumValue));
+const maximumValue = Math.max(num1 + num2 + num3);
+console.log('Maximum Value:', maximumValue);
 
 const heros = ['thor', 'black widow', 'spider man', 'wanda'];
 
