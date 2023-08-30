@@ -71,15 +71,15 @@ console.log('isOldEnoughToDrinkAndDrive:', isOldEnoughToDrinkAndDrive(person));
 function categorizeAcidity(pH) {
   if (pH === 7) {
     return 'neutral';
-  } else if (pH > 7) {
+  } else if (pH > 7 && pH <= 0) {
     return 'acid';
-  } else if (pH >= 7 && pH < 14) {
+  } else if (pH > 7 && pH <= 14) {
     return 'base';
   } else {
     return 'invalid pH level';
   }
 }
-console.log('pH level is:', categorizeAcidity(12));
+console.log('pH level is:', categorizeAcidity(11));
 
 function introduceWarnerBro(name) {
   switch (name) {
@@ -110,6 +110,8 @@ function recommendMovie(genre) {
       return 'La La Land';
     case 'sci-fi':
       return 'Blade Runner 2049';
+    default:
+      return 'Genre not found.';
   }
 }
 
