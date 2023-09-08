@@ -1,4 +1,8 @@
 /* exported getValues */
 function getValues(object) {
-  return object.values();
+  const newArray = [];
+  for (const prop in object) {
+    newArray.push(object[prop]);
+  }
+  return newArray;
 }
