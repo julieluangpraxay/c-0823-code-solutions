@@ -1,0 +1,23 @@
+p {
+  color: red;
+}
+
+.news-headline {
+  font-size: 60px;
+}
+
+.medium-text {
+  font-size: 25px;
+}
+
+.first-class {
+  color: goldenrod;
+}
+
+.different-class {
+  color: indigo;
+}
+
+.other-class {
+  color: chartreuse;
+}
