@@ -18,6 +18,10 @@ function handleDoubleClick(event) {
   console.log('button double-clicked');
   console.log('event:', event);
   console.log('event.target', event.target);
+  console.log(
+    'test:',
+    $doubleClick.addEventListener('dblclick', handleDoubleClick())
+  );
 }
 const $doubleClick = document.querySelector('.double-click-button');
 $doubleClick.addEventListener('dblclick', handleDoubleClick);
