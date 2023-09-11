@@ -1,8 +1,6 @@
 /* exported toObject */
 function toObject(keyValuePair) {
   const newObject = {};
-  const key = keyValuePair[0];
-  const value = keyValuePair[1];
-  newObject[key] = value;
+  newObject[keyValuePair[0]] = keyValuePair[1];
   return newObject;
 }
