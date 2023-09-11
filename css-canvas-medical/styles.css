@@ -1,0 +1,141 @@
+* {
+  margin: 0;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-container {
+  justify-content: center;
+  display: flex;
+  background-color: rgba(92, 89, 89, 0.4);
+  margin: 5rem;
+  position: relative;
+}
+
+.hero-text {
+  position: absolute;
+  color: white;
+  left: 0;
+  top: 0;
+  margin: 5rem;
+  padding-top: 1rem;
+  width: 50%;
+  flex-direction: column;
+}
+
+p {
+  font-size: 22px;
+  line-height: 2rem;
+  font-family: Avenir, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+h1 {
+  font-family: 'Tiempos Headline', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  margin-bottom: 1rem;
+  font-size: 3.5rem;
+}
+
+header {
+  border-bottom: 2px solid #f3f4f5;
+}
+
+.nav-row {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  margin-right: 1.6rem;
+  margin-left: 1.6rem;
+}
+
+ol {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+li {
+  font-family: Avenir, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  margin: 1.3rem;
+  color: #aaa;
+  margin-right: 3rem;
+}
+
+#contact-us {
+  color: white;
+  background-color: #294464;
+  border: none;
+  border-radius: 0.4rem;
+  font-family: Avenir, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  padding: 1rem;
+}
+
+img {
+  width: 100%;
+}
+
+#hero-image {
+  z-index: -1;
+}
+
+button {
+  color: white;
+  background-color: #294464;
+  border: none;
+  border-radius: 0.4rem;
+  font-family: Avenir, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  padding: 1.2rem 3.5rem;
+}
+
+.text-container {
+  padding-top: 3rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fafafa;
+}
+
+@media (width <= 1280px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 12px;
+    line-height: normal;
+  }
+
+  button {
+    font-size: 10px;
+    padding: 1rem;
+  }
+}
+
+.column-half {
+  margin: 0 auto;
+}
+
+.location-column-half {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
