@@ -54,5 +54,6 @@ h1 {
 }
 
 .highlight {
-  background-color: pink;
+  background-color: rgb(254, 240, 230);
+  color: black;
 }
