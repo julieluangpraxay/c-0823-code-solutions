@@ -5,8 +5,8 @@ $tasklist.addEventListener('click', function (event) {
   console.log('event.target.tagName', event.target.tagName);
 
   if (event.target.tagName === 'BUTTON') {
-    const button = event.target.closest('.task-list-item');
-    button.remove();
-    console.log(button);
+    const $button = event.target.closest('.task-list-item');
+    $button.remove();
+    console.log('$button:', $button);
   }
 });
