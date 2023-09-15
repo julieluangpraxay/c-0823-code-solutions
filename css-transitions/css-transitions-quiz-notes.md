@@ -5,7 +5,11 @@
 After completing this exercise, you should be able to discuss or answer the following questions:
 
 - The `transition` property is shorthand for which four CSS properties?
-  The transition CSS property is a shorthand property for transition-property, transition-duration, transition-timing-function, and transition-delay.
+  The transition CSS property is a shorthand property for
+  transition-property,
+  transition-duration,
+  transition-timing-function, and
+  transition-delay
 
 ## Notes
 
