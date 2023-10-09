@@ -12,6 +12,7 @@ After completing this exercise, you should be able to discuss or answer the foll
   const [a, b] = array;
 - How can you tell the difference between destructuring and creating `Object`/`Array` literals?
   Objects have the curly braces and arrays have brackets.
+  array is left side of equal side but if its on the right side, its being destructured.
 
 ## Notes
 
