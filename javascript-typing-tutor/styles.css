@@ -1,0 +1,18 @@
+span {
+  color: black;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.correct {
+  color: rgb(25, 205, 27);
+}
+
+.wrong {
+  color: red;
+}
+
+.underline {
+  border-bottom: 4px solid;
+}
