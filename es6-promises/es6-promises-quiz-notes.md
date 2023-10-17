@@ -11,10 +11,11 @@ This model allows JavaScript to be non-blocking, meaning it can efficiently hand
 
 - What are the three states a Promise can be in?
   pending: the promise is still in the works.
-  fulfilled: the promise resolves successfully and returns a value.
-  rejected: the promise fails with an error.
+  resolve: the promise resolves successfully and returns a value.
+  rejected: the promise completed with an error.
 
 - How do you handle the fulfillment of a Promise?
+  using event handler
   Promises start off as “pending” and stay that way until they are either “fulfilled” (also commonly called “resolved”) or “rejected.” To handle these two states, we use a . then() for fulfilled promises, and a . catch() for rejected promises.
 
 - How do you handle the rejection of a Promise?
