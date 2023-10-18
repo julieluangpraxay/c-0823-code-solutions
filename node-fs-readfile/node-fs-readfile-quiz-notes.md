@@ -19,15 +19,6 @@ After completing this exercise, you should be able to discuss or answer the foll
 
 All student notes should be written here.
 
-- create array of promises
-  const promises = filenames.map(
-  (filename) => readFile(filenames[i], 'utf8')
-  );
-  const contents = Promise.all(promises);
-  console.log(promises);
-
-  each promise reads the file
-
 How to write `Code Examples` in markdown
 
 for JS:
