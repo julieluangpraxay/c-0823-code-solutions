@@ -20,6 +20,7 @@ Synchronous Code: You do not use await for synchronous operations. If a function
 
 - How do you handle errors with `await`?
   You can handle errors when using await by combining it with a try...catch block. This allows you to catch and handle exceptions that might occur when the awaited Promise is rejected
+
 - What do `try`, `catch` and `throw` do? When do you use them?
   TRY block is used in programming to create a protected section of code where exceptions or errors can be monitored and handled.
   It defines a protected area where you can place code that might raise an exception during its execution. The purpose of the try block is to isolate and handle exceptions in a controlled manner.
@@ -28,7 +29,8 @@ Synchronous Code: You do not use await for synchronous operations. If a function
   THROW: The throw statement is used to manually throw an exception in your code. You can use it to create custom exceptions or to signal that something unexpected or erroneous has occurred.
 
 - What happens if you forget to use `await` on a Promise? In that case, what happens to the Promise rejection?
-  there will be a syntax error and you wont be able to use it correctly
+  the code will keep running without await.
+
 - Which style of asynchronous programming do you prefer — callbacks, `Promise.then`, or `async/await`? Why?
   async and await because its easier to write and read, you wont have to worry about promise.then callback hell.
 
@@ -36,7 +38,12 @@ Synchronous Code: You do not use await for synchronous operations. If a function
 
 All student notes should be written here.
 
-How to write `Code Examples` in markdown
+- never use await without try catch.
+- goes to throw new error before catch error
+- if exception is thrown, looks for surrounding try catch, look at call stack,
+- if resolve, goes to finally before catch, finally always run whether there is an exception or not.
+  -log error instead of error.msg to get you the stack trace (call stack), you always want the stack trace when debugging.
+  How to write `Code Examples` in markdown
 
 for JS:
 
