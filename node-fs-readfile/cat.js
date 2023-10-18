@@ -1,11 +1,13 @@
 import { readFile } from 'node:fs/promises';
-const filePath = process.argv.slice(2);
+
+const filenames = process.argv.slice(2);
 
 try {
-  for (let i = 0; i < filePath.length; i++) {
-    const contents = await readFile(filePath[i], 'utf8');
-    console.log(contents);
-  }
+  const ps = filenames.map(
+    async (filename) => await readFile(filename, 'utf8')
+  );
+  const contents = await Promise.all(ps);
+  console.log(contents.join('\n'));
 } catch (err) {
-  console.error(err);
+  console.log(err);
 }
