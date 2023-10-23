@@ -1,5 +1,8 @@
 import express from 'express';
 
+const app = express();
+const port = 3000;
+
 type Grade = {
   id: number;
   name: string;
@@ -28,12 +31,21 @@ const grades: Record<number, Grade> = {
   },
 };
 
-const app = express();
-const port = 8080;
-
+// Route to get all grades
 app.get('/api/grades', (req, res) => {
-  const gradesArray: Grade[] = Object.values(grades);
-  res.json(gradesArray);
+  res.json(Object.values(grades));
+});
+
+// Route to delete a grade by ID
+app.delete('/api/grades/:id', (req, res) => {
+  const id = parseInt(req.params.id, 10);
+
+  if (grades[id]) {
+    delete grades[id];
+    res.sendStatus(204); // No content
+  } else {
+    res.sendStatus(404); // Not found
+  }
 });
 
 app.listen(port, () => {
