@@ -13,5 +13,14 @@
   "scripts": {
     "start": "node server.ts",
     "dev": "nodemon server.ts"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1"
+  },
+  "nodemonConfig": {
+    "execMap": {
+      "ts": "ts-node-esm",
+      "js": "ts-node-esm"
+    }
   }
 }
