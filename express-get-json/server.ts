@@ -36,6 +36,7 @@ app.get('/api/grades', (req, res) => {
   res.json(gradesArray);
 });
 
+
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
 });
