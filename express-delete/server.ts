@@ -44,10 +44,10 @@ app.delete('/api/grades/:id', (req, res) => {
     delete grades[id];
     res.sendStatus(204); // No content
   } else {
-    res.sendStatus(404); // Not found
+    res.sendStatus(404); // This error code: Not found
   }
 });
 
 app.listen(port, () => {
-  console.log(`Server is listening on port ${port}`);
+  console.log(`The server is listening on port ${port}`);
 });
