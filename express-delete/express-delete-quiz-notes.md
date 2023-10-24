@@ -10,7 +10,7 @@ After completing this exercise, you should be able to discuss or answer the foll
 ## Notes
 
 All student notes should be written here.
-
+This is an update for the notes.
 How to write `Code Examples` in markdown
 
 for JS:
