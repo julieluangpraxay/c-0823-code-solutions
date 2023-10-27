@@ -4,5 +4,12 @@
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   },
-  "cSpell.words": ["Bulbasaur", "Charmander", "pokedex"]
+  "cSpell.words": [
+    "Bulbasaur",
+    "Charmander",
+    "Jigglypuff",
+    "Pikachu",
+    "pokedex",
+    "Squirtle"
+  ]
 }
