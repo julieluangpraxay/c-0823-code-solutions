@@ -1,9 +1,13 @@
+import { useState } from 'react';
+
 export default function RotatingBanner({ item }) {
+  const [currentIndex, setCurrentIndex] = useState(3);
+
   return (
     <div>
-      <Banner item={item[0]} />
+      <Banner item={item[currentIndex]} />
       <PrevButton />
-      <Indicators count={item.length} />
+      <Indicators count={item.length} current={setCurrentIndex} />
       <NextButton />
     </div>
   );
@@ -21,8 +25,9 @@ function NextButton() {
   return <button>Next</button>;
 }
 
-function Indicators({ count }) {
+function Indicators({ count, current }) {
   console.log(count);
+  console.log(current);
   return (
     <>
       <li>
