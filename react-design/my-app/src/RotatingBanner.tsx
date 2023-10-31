@@ -1,7 +1,9 @@
 import { CSSProperties, useState } from 'react';
+
 type Props = {
   items: string[];
 };
+
 export function RotatingBanner({ items }: Props) {
   const [current, setCurrent] = useState(4);
   function handlePrevClick() {

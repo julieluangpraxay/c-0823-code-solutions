@@ -1,5 +1,5 @@
-import RotatingBanner from './RotatingBanner';
 import './App.css';
+import { RotatingBanner } from './RotatingBanner';
 
 function App() {
   const items = [
@@ -11,7 +11,7 @@ function App() {
     'Ferret',
   ];
 
-  return <RotatingBanner item={items} />;
+  return <RotatingBanner items={items} />;
 }
 
 export default App;
