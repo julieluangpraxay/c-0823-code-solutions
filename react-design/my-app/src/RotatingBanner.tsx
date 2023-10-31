@@ -1,52 +1,58 @@
-import { useState } from 'react';
-
-export default function RotatingBanner({ item }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  function handleNextClick() {
-    const nextItem = (currentIndex + 1) % item.length;
-    setCurrentIndex(nextItem);
-  }
-
-  return (
-    <div>
-      <Banner item={item[currentIndex]} />
-      <PrevButton />
-      <Indicators count={item.length} current={currentIndex} />
-      <NextButton onClick={handleNextClick} />
-    </div>
-  );
-}
-
-function Banner({ item }) {
-  return <h1>{item}</h1>;
-}
-
-function PrevButton() {
-  return <button>Prev</button>;
-}
-
-type OnClickType = {
-  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+import { CSSProperties, useState } from 'react';
+type Props = {
+  items: string[];
 };
-
-function NextButton({ onClick }: OnClickType) {
-  return <button onClick={onClick}>Next</button>;
-}
-
-function Indicators({ count, current }) {
-  console.log(count);
-  console.log(current);
+export function RotatingBanner({ items }: Props) {
+  const [current, setCurrent] = useState(4);
+  function handlePrevClick() {
+    setCurrent((current - 1 + items.length) % items.length);
+  }
+  function handleNextClick() {
+    setCurrent((current + 1) % items.length);
+  }
+  function handleSelect(index: number) {
+    setCurrent(index);
+  }
   return (
     <>
-      <li>
-        <button>0</button>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-        <button>5</button>
-      </li>
+      <Banner item={items[current]} />
+      <Button text="Prev" onClick={handlePrevClick} />
+      <Indicators items={items} current={current} onSelect={handleSelect} />
+      <Button text="Next" onClick={handleNextClick} />
     </>
   );
+}
+type BannerProps = {
+  item: string;
+};
+function Banner({ item }: BannerProps) {
+  return <h1>{item}</h1>;
+}
+type ButtonProps = {
+  text: string;
+  style?: CSSProperties;
+  onClick: () => void;
+};
+function Button({ text, style, onClick }: ButtonProps) {
+  return (
+    <button style={style} onClick={onClick}>
+      {text}
+    </button>
+  );
+}
+type IndicatorsProps = {
+  items: Props['items'];
+  current: number;
+  onSelect: (index: number) => void;
+};
+function Indicators({ items, current, onSelect }: IndicatorsProps) {
+  const buttons = items.map((item, index) => (
+    <Button
+      key={index + item}
+      text={String(index)}
+      style={{ backgroundColor: current === index ? 'lightblue' : 'white' }}
+      onClick={() => onSelect(index)}
+    />
+  ));
+  return <div>{buttons}</div>;
 }
