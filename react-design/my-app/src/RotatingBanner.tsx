@@ -1,14 +1,19 @@
 import { useState } from 'react';
 
 export default function RotatingBanner({ item }) {
-  const [currentIndex, setCurrentIndex] = useState(3);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  function handleNextClick() {
+    const nextItem = (currentIndex + 1) % item.length;
+    setCurrentIndex(nextItem);
+  }
 
   return (
     <div>
       <Banner item={item[currentIndex]} />
       <PrevButton />
-      <Indicators count={item.length} current={setCurrentIndex} />
-      <NextButton />
+      <Indicators count={item.length} current={currentIndex} />
+      <NextButton onClick={handleNextClick} />
     </div>
   );
 }
@@ -21,8 +26,12 @@ function PrevButton() {
   return <button>Prev</button>;
 }
 
-function NextButton() {
-  return <button>Next</button>;
+type OnClickType = {
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+};
+
+function NextButton({ onClick }: OnClickType) {
+  return <button onClick={onClick}>Next</button>;
 }
 
 function Indicators({ count, current }) {
