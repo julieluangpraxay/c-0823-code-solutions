@@ -1,0 +1,26 @@
+body {
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: black;
+}
+
+.stopwatch {
+  border: 3px solid black;
+  border-radius: 60%;
+  padding: 8rem;
+  font-size: 30px;
+}
+
+.wrapper {
+  justify-content: center;
+  display: block;
+  align-items: center;
+  text-align: center;
+  padding-top: 1rem;
+}
+
+.start-stop {
+  padding-top: 1rem;
+  font-size: 40px;
+}
