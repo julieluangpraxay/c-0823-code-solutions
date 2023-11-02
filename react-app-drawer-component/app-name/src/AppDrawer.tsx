@@ -27,13 +27,13 @@ export default function AppDrawer({ items }: prop) {
 
   return (
     <>
-      <div className="header">
-        <div className="menu-item">
-          <FaBars onClick={openMenu} className={open ? 'hide-items' : null} />
-        </div>
+      <div>
+        <FaBars className={'menu-icon'} onClick={openMenu} />
       </div>
-      {/* when you click it will hide the bars */}
-      <div className={open ? 'menu-drawer is-open' : 'hide-items'}>{nav}</div>
+      <div className={`menu-drawer ${open ? 'is-open' : ' '}`}>
+        {/* when you click it will hide the bars */}
+        <div className={open ? 'menu-drawer is-open' : 'hide-items'}>{nav}</div>
+      </div>
       {/* if you click anywhere it will close the nav menu */}
       <div
         className={open ? 'menu-shade is-drawn is-open' : 'menu-shade'}
