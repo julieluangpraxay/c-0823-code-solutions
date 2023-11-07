@@ -39,7 +39,6 @@ export function Todos() {
     load();
   }, []);
 
-  /* Implement addTodo to add a new todo. Hints are at the bottom of the file. */
   async function addTodo(newTodo: UnsavedTodo) {
     try {
       const response = await fetch('/api/todos', {
@@ -59,7 +58,6 @@ export function Todos() {
     }
   }
 
-  /* Implement toggleCompleted to toggle the completed state of a todo. Hints are at the bottom of the file. */
   async function toggleCompleted(todoId: number) {
     try {
       const foundTodo = todos.find((todo) => todoId === todo.todoId);
