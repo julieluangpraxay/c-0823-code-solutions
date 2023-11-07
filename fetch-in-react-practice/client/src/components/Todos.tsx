@@ -1,10 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars -- Remove me */
-/* eslint-disable @typescript-eslint/no-empty-function -- Remove me */
 import { useEffect, useState } from 'react';
 import { PageTitle } from './PageTitle';
 import { TodoList } from './TodoList';
 import { TodoForm } from './TodoForm';
-
 export type UnsavedTodo = {
   task: string;
   isCompleted: boolean;
@@ -12,83 +9,67 @@ export type UnsavedTodo = {
 export type Todo = UnsavedTodo & {
   todoId: number;
 };
-
 export function Todos() {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<unknown>();
-
-  /* Implement useEffect to fetch all todos. Hints are at the bottom of the file. */
+  console.log('rendering');
   useEffect(() => {
     async function load() {
-      setIsLoading(true);
       try {
         const response = await fetch('/api/todos');
-        if (!response.ok) {
-          throw new Error(`An error occurred: ${response.status}`);
-        }
-        const todo = await response.json();
-        setTodos(todo);
-      } catch (error) {
-        console.error(error);
-        setError(error);
+        if (!response.ok)
+          throw new Error(`An error occurred ${response.status}`);
+        const values = await response.json();
+        setTodos(values);
+      } catch (err) {
+        console.error(err);
+        setError(err);
       } finally {
         setIsLoading(false);
       }
     }
-
     load();
   }, []);
-
   async function addTodo(newTodo: UnsavedTodo) {
     try {
+      setIsLoading(true);
       const response = await fetch('/api/todos', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'content-type': 'application/json' },
         body: JSON.stringify(newTodo),
       });
-      if (!response.ok) {
-        throw new Error(`An error occurred: ${response.status}`);
-      }
-      const todo = await response.json();
-      setTodos(todos.concat(todo));
-    } catch (error) {
-      console.error(error);
-      setError(error);
+      if (!response.ok) throw new Error(`An error occurred ${response.status}`);
+      const value = await response.json();
+      setTodos([...todos, value]);
+    } catch (err) {
+      console.error(err);
+      setError(err);
     } finally {
       setIsLoading(false);
     }
   }
-
   async function toggleCompleted(todoId: number) {
     try {
       const foundTodo = todos.find((todo) => todoId === todo.todoId);
-      if (!foundTodo) {
-        console.log('Todo not found');
-        return; // Early return if the todo is not found.
-      }
-
-      const isCompleted = !foundTodo.isCompleted;
       const response = await fetch(`/api/todos/${todoId}`, {
         method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ isCompleted }),
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({
+          isCompleted: !foundTodo?.isCompleted,
+        }),
       });
-
-      if (!response.ok) {
-        throw new Error(`An error occurred: ${response.status}`);
-      }
-
-      const updatedTodos = todos.map((todo) =>
-        todo.todoId === todoId ? { ...todo, isCompleted } : todo
+      if (!response.ok) throw new Error(`An error occurred ${response.status}`);
+      const value = await response.json();
+      const newTodos = todos.map((todo) =>
+        todo.todoId === todoId ? value : todo
       );
-
-      setTodos(updatedTodos);
-    } catch (error) {
-      console.error('an error occurred:', error);
+      setTodos(newTodos);
+    } catch (err) {
+      console.error(err);
+      setError(err);
     }
   }
-
   if (isLoading) {
     return <div>Loading...</div>;
   }
