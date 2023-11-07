@@ -31,6 +31,7 @@ export function Todos() {
         setTodos(todo);
       } catch (error) {
         console.error(error);
+        setError(error);
       } finally {
         setIsLoading(false);
       }
@@ -53,6 +54,7 @@ export function Todos() {
       setTodos(todos.concat(todo));
     } catch (error) {
       console.error(error);
+      setError(error);
     } finally {
       setIsLoading(false);
     }
