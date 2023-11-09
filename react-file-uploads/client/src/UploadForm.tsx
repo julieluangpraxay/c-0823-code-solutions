@@ -8,7 +8,22 @@ type Image = {
 };
 
 export function UploadForm() {
+  const [imageFile, setImageFile] = useState<Image>();
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    try {
+      const formData = new FormData(event.currentTarget);
+      const response = await fetch('/api/uploads', {
+        method: 'POST',
+        body: formData,
+      });
+      if (!response.ok) throw new Error(`"Fetch error:" ${response.status}`);
+      const image = (await response.json()) as Image;
+      setImageFile(image);
+      console.log(image);
+    } catch (error) {
+      console.error(error);
+    }
     /* Prevent the browser's default behavior for form submissions.
      * Create a `new` FormData object from the `event`.
      *
@@ -58,6 +73,7 @@ export function UploadForm() {
               </button>
             </div>
           </form>
+          <img src={imageFile?.url} alt={imageFile?.caption} />
         </div>
       </div>
     </div>
