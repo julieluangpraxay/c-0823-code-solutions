@@ -14,8 +14,6 @@ export function AuthPage({ action }: Props) {
   /* TODO: Grab `user` and `handleSignIn` from `AppContext` */
   const { user, handleSignIn } = useContext(AppContext);
 
-  // const handleSignIn = () => {};
-
   useEffect(() => {
     if (user) navigate('/');
   }, [user, navigate]);
