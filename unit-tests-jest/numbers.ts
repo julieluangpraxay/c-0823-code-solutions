@@ -17,10 +17,11 @@ export function toDollars(amount: number): string {
  * given divisor. Does not modify the original array.
  */
 export function divideBy(numbers: number[], divisor: number): number[] {
+  const result = [];
   for (let i = 0; i < numbers.length; i++) {
-    numbers[i] = numbers[i] / divisor;
+    result.push(numbers[i] / divisor);
   }
-  return numbers;
+  return result;
 }
 
 /**
