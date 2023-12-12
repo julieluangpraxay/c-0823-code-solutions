@@ -42,10 +42,9 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: gray;
+  background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
-  margin: 2rem;
 }
 
 button:hover {
@@ -70,29 +69,6 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
-
-.buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hot-button {
-  font-size: 2rem;
-  padding: 0.5rem 1rem;
-  border: 2px solid rgb(70, 70, 70);
-  border-radius: 0.25rem;
-  position: relative;
-  transition: background-color 0.15s ease, color 0.15s ease;
-}
-
-.hot-button:focus {
-  outline: none;
-}
-
-.hot-button:active {
-  top: 3px;
 }
 
 .hot-button.cold {
@@ -121,13 +97,9 @@ button:focus-visible {
   background-color: rgb(255, 255, 255);
 }
 
-.hot-button.cold,
-.hot-button.cool,
-.hot-button.tepid {
-  color: rgb(255, 255, 255);
-}
-
-.hot-button.warm,
-.hot-button.hot {
-  color: rgb(70, 70, 70);
+.center {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
